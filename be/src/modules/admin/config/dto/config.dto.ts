@@ -13,7 +13,7 @@ export class configDto {
 	@ApiProperty()
 	@IsOptional()
 	url?: Object;
-
+	
 	@ApiProperty()
 	@IsOptional()
 	status?: number;
@@ -34,6 +34,10 @@ export class configDto {
 	@ApiProperty()
 	@IsOptional()
 	response?: Object;
+
+	@ApiProperty()
+	@IsOptional()
+	response_type?: Object;
 
 	@ApiProperty()
 	@IsOptional()

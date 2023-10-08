@@ -9,14 +9,14 @@ import {
 	@PrimaryGeneratedColumn('increment',{name: 'id'})
     id: number;
   
-	@Column('character varying', { name: 'name', nullable: false })
+	@Column('character varying', {nullable: false })
 	app_name: string;
   
-	@Column('character varying', { name: 'code', nullable: false })
+	@Column('character varying', { nullable: false })
 	app_code: string;
   
 	@Column('jsonb')
-	url: any;
+	url: Object;
 
 	@Column()
 	status: number;
@@ -25,16 +25,19 @@ import {
 	type_url: string;
   
 	@Column('jsonb')
-	params_search: any;
+	params_search: Object;
 
 	@Column('jsonb')
-	headers: any;
+	headers: Object;
 
 	@Column('jsonb')
-	response: any;
+	response: Object;
 
 	@Column('jsonb')
-	body_request: any;
+	response_type: Object;
+
+	@Column('jsonb')
+	body_request: Object;
 
 	@Column()
 	code: string;

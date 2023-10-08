@@ -88,25 +88,6 @@ export class HttpClientService {
 
 	}
 
-	async getBitcoinPriceUSD() {
-		const a = this.http
-			.get('https://api.coindesk.com/v1/bpi/currentprice.json')
-			.pipe(
-				map((res) => res.data?.bpi),
-				map((bpi) => bpi?.USD),
-				map((usd) => {
-					usd.subc
-				}),
-			)
-			.pipe(
-				catchError(() => {
-					throw new ForbiddenException('API not available');
-				}),
-			);
-		console.log(a);
-		return a;
-	}
-
 	// async deleteMethod(url: string, headers?: any) {
 	// 	try {
 	// 		const httpHeader = {

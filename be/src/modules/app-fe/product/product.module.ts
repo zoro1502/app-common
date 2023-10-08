@@ -3,13 +3,26 @@ import { ProductService } from './product.service';
 import { ProductController } from './product.controller';
 import { HttpClientService } from 'src/modules/processor/httpClientService.processor';
 import { HttpModule } from '@nestjs/axios';
+import { BuildProductService } from './services/build-product.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigEntity } from 'src/entities/config.entity';
 
 @Module({
 	imports: [
-		HttpModule
+		HttpModule,
+		TypeOrmModule.forFeature([ConfigEntity])
 	],
-
-  controllers: [ProductController],
-  providers: [ProductService, HttpClientService]
+	controllers: [
+		ProductController
+	],
+	providers: [
+		ProductService,
+		HttpClientService,
+		BuildProductService
+	],
+	exports: [
+		ProductService,
+		BuildProductService
+	]
 })
-export class ProductModule {}
+export class ProductModule { }
